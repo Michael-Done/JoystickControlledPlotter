@@ -18,3 +18,15 @@ struct DrawingHead {
     TLegoColors color;
 
 };
+
+void updateDrawingHead(struct DrawingHead *head) {
+    // Update motor encoders
+    head->x = nMotorEncoder[head->xAxisMotor];
+    head->y = nMotorEncoder[head->yAxisMotor];
+
+    // Detect whether or not it is drawing on the surface
+    head->drawing = nMotorEncoder[head->drawMotor] >= head->DRAW_MOTOR_LIMIT;
+
+    // Update the color
+    head->color = SensorValue[head->colorSensor];
+}
