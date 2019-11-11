@@ -8,16 +8,15 @@
         int startX                   : the start x-axis position
         int startY                   : the start y-axis position
         int radius                   : The radius of the circle in encoder ticks
-        const struct constants *CON  : structure containing all constants specific to the physical robot
 */
-void drawCircle(int startX, int startY, int radius, const struct constants *CON) {
-    beginShape(startX, startY, CON);
-    moveTo(startX + radius, startY, CON->SHAPE_SPEED, CON);
-    actuate(true, CON);
+void drawCircle(int startX, int startY, int radius) {
+    beginShape(startX, startY);
+    moveTo(startX + radius, startY, SHAPE_SPEED);
+    actuate(true);
     for(int angle = 0; angle <= 360; angle += 10) {
-        moveTo(startX + radius*cos(angle), startY + radius*sin(angle), CON->SHAPE_SPEED, CON);
+        moveTo(startX + radius*cos(angle), startY + radius*sin(angle), SHAPE_SPEED);
     }
-    endShape(startX, startY, CON);
+    endShape(startX, startY);
 }
 
 /*  void drawRect : draws a rectangle of a specified width and height with the bottom left corner specified by the startX and startY
@@ -26,16 +25,15 @@ void drawCircle(int startX, int startY, int radius, const struct constants *CON)
         int startY                   : the start y-axis position
         int width                    : The width of the rectangle in encoder ticks
         int height                   : The height of the rectangle in encoder ticks
-        const struct constants *CON  : structure containing all constants specific to the physical robot
 */
-void drawRect(int startX, int startY, int width, int height, const struct constants *CON) {
-    beginShape(startX, startY, CON);
-    actuate(true, CON);
-    moveTo(startX + width, startY, CON->SHAPE_SPEED, CON);
-    moveTo(startX + width, startY + height, CON->SHAPE_SPEED, CON);
-    moveTo(startX, startY + height, CON->SHAPE_SPEED, CON);
-    moveTo(startX, startY, CON->SHAPE_SPEED, CON);
-    endShape(startX, startY, CON);
+void drawRect(int startX, int startY, int width, int height) {
+    beginShape(startX, startY);
+    actuate(true);
+    moveTo(startX + width, startY, SHAPE_SPEED);
+    moveTo(startX + width, startY + height, SHAPE_SPEED);
+    moveTo(startX, startY + height, SHAPE_SPEED);
+    moveTo(startX, startY, SHAPE_SPEED);
+    endShape(startX, startY);
 }
 
 /*  void drawTiangle : draws an equilateral triangle of specified side length
@@ -43,26 +41,24 @@ void drawRect(int startX, int startY, int width, int height, const struct consta
         int startX                   : the start x-axis position
         int startY                   : the start y-axis position
         int sideLength               : the side length in encoder ticks
-        const struct constants *CON  : structure containing all constants specific to the physical robot
 */
-void drawTriangle(int startX, int startY, int sideLength, const struct constants *CON) {
-    beginShape(startX, startY, CON);
-    actuate(true, CON);
-    moveTo(startX + sideLength, startY, CON->SHAPE_SPEED, CON);
-    moveTo(startX + sideLength*sin(PI/3.0), startY + sideLength*cos(PI/3.0), CON->SHAPE_SPEED, CON);
-    moveTo(startX, startY, CON->SHAPE_SPEED, CON);
-    endShape(startX, startY, CON);
+void drawTriangle(int startX, int startY, int sideLength) {
+    beginShape(startX, startY);
+    actuate(true);
+    moveTo(startX + sideLength, startY, SHAPE_SPEED);
+    moveTo(startX + sideLength*sin(PI/3.0), startY + sideLength*cos(PI/3.0), SHAPE_SPEED);
+    moveTo(startX, startY, SHAPE_SPEED);
+    endShape(startX, startY);
 }
 
 /*  void beginShape : performs actions common to the start of all shapes
     Parameters:
         int startX                   : the start x-axis position
         int startY                   : the start y-axis position
-        const struct constants *CON  : structure containing all constants specific to the physical robot
 */
-void beginShape(int startX, int startY, const struct constants *CON){
-    actuate(false, CON);
-    moveTo(startX, startY, CON->SHAPE_SPEED, CON);
+void beginShape(int startX, int startY){
+    actuate(false);
+    moveTo(startX, startY, SHAPE_SPEED);
 
 }
 
@@ -70,9 +66,8 @@ void beginShape(int startX, int startY, const struct constants *CON){
     Parameters:
         int startX                   : the start x-axis position
         int startY                   : the start y-axis position
-        const struct constants *CON  : structure containing all constants specific to the physical robot
 */
-void endShape(int startX, int startY, const struct constants *CON) {
-    actuate(false, CON);
-    moveTo(startX,startY, CON->SHAPE_SPEED, CON);
+void endShape(int startX, int startY) {
+    actuate(false);
+    moveTo(startX,startY, SHAPE_SPEED);
 }
