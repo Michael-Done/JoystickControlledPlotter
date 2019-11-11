@@ -1,5 +1,5 @@
-#include "movement.c"
-#include "constants.c"
+#include "movement.h"
+#include "constants.h"
 
 // Functions used for drawing
 
