@@ -11,7 +11,10 @@
 */
 void drawCircle(int startX, int startY, int radius, const struct constants *CON) {
     beginShape(startX, startY, CON);
-    // TO DO
+    moveTo(startX + radius, startY, CON->SHAPE_SPEED, CON);
+    for(int angle = 0; angle <= 360; angle += 10) {
+        moveTo(startX + radius*cos(angle), startY + radius*sin(angle), CON->SHAPE_SPEED, CON);
+    }
     endShape(startX, startY, CON);
 }
 
