@@ -3,7 +3,6 @@
     Parameters:
         int targetXSpeed             : the target x speed (0 - 100)
         int targetYSpeed             : the target y speed (0 - 100)
-        const struct constants *CON  : structure containing all constants specific to the physical robot
 */
 void setSpeed(int targetXSpeed, int targetYSpeed){
     if(targetXSpeed > 0 && nMotorEncoder[X_AXIS] >= X_LIMIT)
@@ -17,7 +16,7 @@ void setSpeed(int targetXSpeed, int targetYSpeed){
         targetYSpeed = 0;
 
     motor[X_AXIS] = targetXSpeed;
-    motor[y_AXIS] = targetYSpeed;
+    motor[Y_AXIS] = targetYSpeed;
 }
 
 /*  void moveTo : will move the drawing head to a specified x and y position
@@ -27,11 +26,11 @@ void setSpeed(int targetXSpeed, int targetYSpeed){
         int speed                    : the speed the drawing head will move at (0 - 100)
 */
 void moveTo(int x, int y, int speed) {
-    while(abs(nMotorEncoder[X_AXIS]-x) > MOVE_TO_TOL && abs(nMotorEncoder[Y_AXIS]-y) > MOVE_TO_TOL)){
-        int dist = sqrt(pow(nMotorEncoder[X_AXIS]-x, 2) + pow(nMotorEncoder[Y_AXIS]-y 2));
+    while(abs(nMotorEncoder[X_AXIS]-x) > MOVE_TO_TOL && abs(nMotorEncoder[Y_AXIS]-y) > MOVE_TO_TOL){
+        float dist = sqrt(pow(nMotorEncoder[X_AXIS]-x, 2) + pow(nMotorEncoder[Y_AXIS]-y, 2));
         int xSpeed = speed*((nMotorEncoder[X_AXIS]-x)/dist);
         int ySpeed = speed*((nMotorEncoder[Y_AXIS]-y)/dist);
-        setSpeed(xSpeed, ySpeed, X_LIMIT, Y_LIMIT);
+        setSpeed(xSpeed, ySpeed);
     }
 }
 

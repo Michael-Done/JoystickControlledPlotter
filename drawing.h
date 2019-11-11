@@ -3,13 +3,33 @@
 
 // Functions used for drawing
 
+/*  void beginShape : performs actions common to the start of all shapes
+    Parameters:
+        int startX                   : the start x-axis position
+        int startY                   : the start y-axis position
+*/
+void beginShape(int startX, int startY){
+    actuate(false);
+    moveTo(startX, startY, SHAPE_SPEED);
+}
+
+/*  void endShape : performs actions common to the ending of all shapes
+    Parameters:
+        int startX                   : the start x-axis position
+        int startY                   : the start y-axis position
+*/
+void endShape(int startX, int startY) {
+    actuate(false);
+    moveTo(startX,startY, SHAPE_SPEED);
+}
+
 /*  void drawCircle : draws a circle of specidied radius starting at the center
     Parameters:
         int startX                   : the start x-axis position
         int startY                   : the start y-axis position
         int radius                   : The radius of the circle in encoder ticks
 */
-void drawCircle(int startX, int startY, int radius) {
+void drawCirc(int startX, int startY, int radius) {
     beginShape(startX, startY);
     moveTo(startX + radius, startY, SHAPE_SPEED);
     actuate(true);
@@ -49,25 +69,4 @@ void drawTriangle(int startX, int startY, int sideLength) {
     moveTo(startX + sideLength*sin(PI/3.0), startY + sideLength*cos(PI/3.0), SHAPE_SPEED);
     moveTo(startX, startY, SHAPE_SPEED);
     endShape(startX, startY);
-}
-
-/*  void beginShape : performs actions common to the start of all shapes
-    Parameters:
-        int startX                   : the start x-axis position
-        int startY                   : the start y-axis position
-*/
-void beginShape(int startX, int startY){
-    actuate(false);
-    moveTo(startX, startY, SHAPE_SPEED);
-
-}
-
-/*  void endShape : performs actions common to the ending of all shapes
-    Parameters:
-        int startX                   : the start x-axis position
-        int startY                   : the start y-axis position
-*/
-void endShape(int startX, int startY) {
-    actuate(false);
-    moveTo(startX,startY, SHAPE_SPEED);
 }
