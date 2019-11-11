@@ -1,4 +1,5 @@
 #include "movement.c"
+#include "constants.c"
 
 // Functions used for drawing
 
@@ -12,6 +13,7 @@
 void drawCircle(int startX, int startY, int radius, const struct constants *CON) {
     beginShape(startX, startY, CON);
     moveTo(startX + radius, startY, CON->SHAPE_SPEED, CON);
+    actuate(true, CON);
     for(int angle = 0; angle <= 360; angle += 10) {
         moveTo(startX + radius*cos(angle), startY + radius*sin(angle), CON->SHAPE_SPEED, CON);
     }
@@ -28,6 +30,7 @@ void drawCircle(int startX, int startY, int radius, const struct constants *CON)
 */
 void drawRect(int startX, int startY, int width, int height, const struct constants *CON) {
     beginShape(startX, startY, CON);
+    actuate(true, CON);
     moveTo(startX + width, startY, CON->SHAPE_SPEED, CON);
     moveTo(startX + width, startY + height, CON->SHAPE_SPEED, CON);
     moveTo(startX, startY + height, CON->SHAPE_SPEED, CON);
@@ -44,7 +47,10 @@ void drawRect(int startX, int startY, int width, int height, const struct consta
 */
 void drawTriangle(int startX, int startY, int sideLength, const struct constants *CON) {
     beginShape(startX, startY, CON);
-    // TO DO
+    actuate(true, CON);
+    moveTo(startX + sideLength, startY, CON->SHAPE_SPEED, CON);
+    moveTo(startX + sideLength*sin(PI/3.0), startY + sideLength*cos(PI/3.0), CON->SHAPE_SPEED, CON);
+    moveTo(startX, startY, CON->SHAPE_SPEED, CON);
     endShape(startX, startY, CON);
 }
 
@@ -57,7 +63,7 @@ void drawTriangle(int startX, int startY, int sideLength, const struct constants
 void beginShape(int startX, int startY, const struct constants *CON){
     actuate(false, CON);
     moveTo(startX, startY, CON->SHAPE_SPEED, CON);
-    actuate(true, CON);
+
 }
 
 /*  void endShape : performs actions common to the ending of all shapes
