@@ -17,3 +17,7 @@ void systemReset();
 task main(){
     systemReset();
 }
+
+void systemReset() {
+
+}
