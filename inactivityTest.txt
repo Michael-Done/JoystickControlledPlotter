@@ -13,8 +13,10 @@ if(newEncoderX != oldEncoderX && newEncoderY !=oldEncoderY)  //an axis has moved
 time1[T1]=0;
 oldEncoderX=newEncoderX;        //Reset Timer, Update Current Encoder Value
 oldEncoderY=newEncoderY;
+cout<<"hello";
 }
 
 return false;
 
 }
+
