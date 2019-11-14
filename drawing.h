@@ -9,6 +9,7 @@
         int startY                   : the start y-axis position
 */
 void beginShape(int startX, int startY){
+    while(getButtonPressed(buttonAny)) {}
     actuate(false);
     moveTo(startX, startY, SHAPE_SPEED);
 }
@@ -70,4 +71,17 @@ void drawTriangle(int startX, int startY, int sideLength) {
     moveTo(startX + sideLength*sin(PI/3.0), startY + sideLength*cos(PI/3.0), SHAPE_SPEED);
     moveTo(startX, startY, SHAPE_SPEED);
     endShape(startX, startY);
+}
+
+/*  void checkButtons : checks the EV3 buttons to see if the robot needs to draw any shapes
+    Parameters:
+        None
+*/
+void checkButtons(){
+    if(getButtonPressed(buttonLeft))
+        drawCirc(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], CIRCLE_RAD);
+    else if(getButtonPressed(buttonEnter))
+        drawRectangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], RECT_W, RECT_H);
+    else if(getButtonPressed(buttonRight))
+        drawTriangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], TRI_LEN);
 }
