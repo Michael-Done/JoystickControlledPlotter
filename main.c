@@ -15,7 +15,20 @@
 void systemReset();
 
 task main(){
+	/* 
+	// Proper task main layout:
+	bool exit = false;
+	int sensitivity = 50;
 	systemReset();
+	while(!exit) {
+		checkButtons();
+		joystickInput(sensitivity);
+		sensitivity = setSensitivity;
+		checkActuation();
+		checkInactivity(exit);
+	}
+	systemReset();
+	*/
 }
 
 void systemReset() {
