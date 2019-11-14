@@ -21,6 +21,7 @@ void beginShape(int startX, int startY){
 void endShape(int startX, int startY) {
     actuate(false);
     moveTo(startX,startY, SHAPE_SPEED);
+    time1[IDLE_TIMER] = 0;
 }
 
 /*  void drawCircle : draws a circle of specidied radius starting at the center
@@ -46,7 +47,7 @@ void drawCirc(int startX, int startY, int radius) {
         int width                    : The width of the rectangle in encoder ticks
         int height                   : The height of the rectangle in encoder ticks
 */
-void drawRect(int startX, int startY, int width, int height) {
+void drawRectangle(int startX, int startY, int width, int height) {
     beginShape(startX, startY);
     actuate(true);
     moveTo(startX + width, startY, SHAPE_SPEED);

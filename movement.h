@@ -5,14 +5,14 @@
         int targetYSpeed             : the target y speed (0 - 100)
 */
 void setSpeed(int targetXSpeed, int targetYSpeed){
-    if(targetXSpeed > 0 && nMotorEncoder[X_AXIS] >= X_LIMIT)
+    if(targetXSpeed > 0 && nMotorEncoder[X_AXIS] > X_LIMIT)
         targetXSpeed = 0;
-    else if(targetXSpeed < 0 && nMotorEncoder[X_AXIS] <= 0)
+    else if(targetXSpeed < 0 && nMotorEncoder[X_AXIS] < 0)
         targetXSpeed = 0;
 
-    if(targetYSpeed > 0 && nMotorEncoder[Y_AXIS] >= Y_LIMIT)
+    if(targetYSpeed > 0 && nMotorEncoder[Y_AXIS] > Y_LIMIT)
         targetYSpeed = 0;
-    else if(targetYSpeed < 0 && nMotorEncoder[Y_AXIS] <= 0)
+    else if(targetYSpeed < 0 && nMotorEncoder[Y_AXIS] < 0)
         targetYSpeed = 0;
 
     motor[X_AXIS] = targetXSpeed;
@@ -26,10 +26,12 @@ void setSpeed(int targetXSpeed, int targetYSpeed){
         int speed                    : the speed the drawing head will move at (0 - 100)
 */
 void moveTo(int x, int y, int speed) {
+    x = max(min(x, X_LIMIT), 0);
+    y = max(min(y, Y_LIMIT), 0);
     while(abs(nMotorEncoder[X_AXIS]-x) > MOVE_TO_TOL && abs(nMotorEncoder[Y_AXIS]-y) > MOVE_TO_TOL){
-        float dist = sqrt(pow(nMotorEncoder[X_AXIS]-x, 2) + pow(nMotorEncoder[Y_AXIS]-y, 2));
-        int xSpeed = speed*((nMotorEncoder[X_AXIS]-x)/dist);
-        int ySpeed = speed*((nMotorEncoder[Y_AXIS]-y)/dist);
+        float dist = sqrt(pow(x-nMotorEncoder[X_AXIS], 2) + pow(y-nMotorEncoder[Y_AXIS], 2));
+        int xSpeed = speed*(x-(nMotorEncoder[X_AXIS])/dist);
+        int ySpeed = speed*(y-(nMotorEncoder[Y_AXIS])/dist);
         setSpeed(xSpeed, ySpeed);
     }
 }
