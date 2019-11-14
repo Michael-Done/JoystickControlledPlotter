@@ -9,7 +9,7 @@
         int startY                   : the start y-axis position
 */
 void beginShape(int startX, int startY){
-    while(getButtonPressed(buttonAny)) {}
+    while(getButtonPress(buttonAny)) {}
     actuate(false);
     moveTo(startX, startY, SHAPE_SPEED);
 }
@@ -78,10 +78,10 @@ void drawTriangle(int startX, int startY, int sideLength) {
         None
 */
 void checkButtons(){
-    if(getButtonPressed(buttonLeft))
+    if(getButtonPress(buttonLeft))
         drawCirc(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], CIRCLE_RAD);
-    else if(getButtonPressed(buttonEnter))
+    else if(getButtonPress(buttonEnter))
         drawRectangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], RECT_W, RECT_H);
-    else if(getButtonPressed(buttonRight))
+    else if(getButtonPress(buttonRight))
         drawTriangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], TRI_LEN);
 }

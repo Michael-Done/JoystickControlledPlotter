@@ -12,3 +12,19 @@ const int CIRCLE_RAD = 360*2; // The radius of the preprogrammed circle
 const int RECT_W = 360*2; // The width of the preprogrammed rectangle
 const int RECT_H = 360*2; // The height of the preprogrammed rectangle
 const int TRI_LEN = 360*3; // The side length of the preprogrammed triangle
+
+/*  int max : returns the larger of two integer values
+*/
+int max(int a, int b){
+	if(a > b)
+		return a;
+	return b;
+}
+
+/*  int min : returns the smaller of two integer values
+*/
+int min(int a, int b){
+	if(a < b)
+		return a;
+	return b;
+}
