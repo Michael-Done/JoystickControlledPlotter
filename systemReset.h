@@ -25,6 +25,9 @@ void systemReset()
     {}
     motor[Y_AXIS] = 0;
 
+    nMotorEncoder[X_AXIS] = X_LIMIT;
+    nMotorEncoder[Y_AXIS] = 0;
+
     resetGyro(X_GYRO);
     resetGyro(Y_GYRO);
 }
