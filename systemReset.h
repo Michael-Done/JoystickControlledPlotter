@@ -7,7 +7,7 @@ void systemReset()
 
     nMotorEncoder[X_AXIS] = 0;
     motor[X_AXIS] = 100;
-    while(SensorValue[COLOR] != (int)colorRed && nMotorEncoder[X_AXIS] < X_LIMIT)
+    while(SensorValue[COLOR] != (int)colorRed && SensorValue[COLOR] != (int)colorBlack && nMotorEncoder[X_AXIS] < X_LIMIT)
     {}
     motor[X_AXIS] = 0;
 
