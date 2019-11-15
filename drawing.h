@@ -9,6 +9,7 @@
         int startY                   : the start y-axis position
 */
 void beginShape(int startX, int startY){
+    while(getButtonPress(buttonAny)) {}
     actuate(false);
     moveTo(startX, startY, SHAPE_SPEED);
 }
@@ -21,6 +22,7 @@ void beginShape(int startX, int startY){
 void endShape(int startX, int startY) {
     actuate(false);
     moveTo(startX,startY, SHAPE_SPEED);
+    time1[IDLE_TIMER] = 0;
 }
 
 /*  void drawCircle : draws a circle of specidied radius starting at the center
@@ -46,7 +48,7 @@ void drawCirc(int startX, int startY, int radius) {
         int width                    : The width of the rectangle in encoder ticks
         int height                   : The height of the rectangle in encoder ticks
 */
-void drawRect(int startX, int startY, int width, int height) {
+void drawRectangle(int startX, int startY, int width, int height) {
     beginShape(startX, startY);
     actuate(true);
     moveTo(startX + width, startY, SHAPE_SPEED);
@@ -69,4 +71,17 @@ void drawTriangle(int startX, int startY, int sideLength) {
     moveTo(startX + sideLength*sin(PI/3.0), startY + sideLength*cos(PI/3.0), SHAPE_SPEED);
     moveTo(startX, startY, SHAPE_SPEED);
     endShape(startX, startY);
+}
+
+/*  void checkButtons : checks the EV3 buttons to see if the robot needs to draw any shapes
+    Parameters:
+        None
+*/
+void checkButtons(){
+    if(getButtonPress(buttonLeft))
+        drawCirc(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], CIRCLE_RAD);
+    else if(getButtonPress(buttonEnter))
+        drawRectangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], RECT_W, RECT_H);
+    else if(getButtonPress(buttonRight))
+        drawTriangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], TRI_LEN);
 }
