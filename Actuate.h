@@ -10,7 +10,7 @@ bool actuate (int sign, bool control) //sign should be -1 or +1
 
     if (control)
     {
-        joystickinput(gyro1,gyro2)
+//        joystickinput(gyro1,gyro2)
 
         if (SensorValue[TOUCH_SENSOR]!=1 && priorButtonState==1)
             sign=-sign;
