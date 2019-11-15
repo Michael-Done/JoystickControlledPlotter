@@ -10,10 +10,9 @@ if (time1[T1]>IDLETIME)
 
 if(newEncoderX != oldEncoderX && newEncoderY !=oldEncoderY)  //an axis has moved
 {
-time1[T1]=0;
-oldEncoderX=newEncoderX;        //Reset Timer, Update Current Encoder Value
-oldEncoderY=newEncoderY;
-cout<<"hello";
+    time1[T1]=0;
+    oldEncoderX=newEncoderX;        //Reset Timer, Update Current Encoder Value
+    oldEncoderY=newEncoderY;
 }
 
 return false;
