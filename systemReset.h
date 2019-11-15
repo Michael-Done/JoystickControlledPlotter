@@ -1,3 +1,7 @@
+/*  void systemReset : performs a reset of the actuator porsition and the gyros
+    Parameters:
+        None
+*/
 void systemReset()
 {
     motor[X_AXIS] = 0;
