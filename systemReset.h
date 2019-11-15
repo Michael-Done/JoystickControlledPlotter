@@ -1,4 +1,4 @@
-/*  void systemReset : performs a reset of the actuator porsition and the gyros
+/*  void systemReset : performs a reset of the actuator position and the gyros
     Parameters:
         None
 */
@@ -6,8 +6,12 @@ void systemReset()
 {
     motor[X_AXIS] = 0;
     motor[Y_AXIS] = 0;
-
-    actuate(-1, 0);
+    motor[DRAW_MOTOR] = 0;
+    
+    time1[T3] = 0;
+    while(time1[T3] < 2500)
+        motor[DRAW_MOTOR] = 20;
+    motor[DRAW_MOTOR] = 0;
 
     nMotorEncoder[X_AXIS] = 0;
     motor[X_AXIS] = 100;
