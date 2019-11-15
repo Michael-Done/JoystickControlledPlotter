@@ -1,3 +1,7 @@
+#include "constants.h"
+#include "joystickControl.h"
+
+
 bool actuate (int sign, bool control) //sign should be -1 or +1
 {
     int priorButtonState = SensorValue[TOUCH_SENSOR]; //buttonState = 0 as this function is called only when button has been released
@@ -9,7 +13,7 @@ bool actuate (int sign, bool control) //sign should be -1 or +1
 
     if (control)
     {
-//        joystickinput(gyro1,gyro2)
+       joystickControl()
 
         if (SensorValue[TOUCH_SENSOR]!=1 && priorButtonState==1)
             sign=-sign;
