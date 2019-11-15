@@ -5,6 +5,7 @@ const int MOVE_TO_TOL = 2; // When the head is within this many ticks of a point
 const int SHAPE_SPEED = 50; // The speed at which the pre-programmed shapes will be drawn
 const float SENSFACTOR = -3*(100/360.0); //The % sensitivity the motor encoder changes
 const int ACTUATE_SPEED = 20; //The speed at which the drawing head will actuate
+const int IDLETIME = 50000;
 //const tSensors COLOR_SENSOR = S1; // The color sensor port
 //const tMotor X_AXIS = motorA; // The x-axis motor
 //const tMotor Y_AXIS = motorB; // The y-axis motor
