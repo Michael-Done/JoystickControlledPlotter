@@ -28,11 +28,16 @@ void setSpeed(int targetXSpeed, int targetYSpeed){
 void moveTo(int x, int y, int speed) {
     x = max(min(x, X_LIMIT), 0);
     y = max(min(y, Y_LIMIT), 0);
-    while(abs(nMotorEncoder[X_AXIS]-x) > MOVE_TO_TOL && abs(nMotorEncoder[Y_AXIS]-y) > MOVE_TO_TOL){
+    while(abs(nMotorEncoder[X_AXIS]-x) > MOVE_TO_TOL || abs(nMotorEncoder[Y_AXIS]-y) > MOVE_TO_TOL){
+        int xSpeed = 0;
+        int ySpeed = 0;
         float dist = sqrt(pow(x-nMotorEncoder[X_AXIS], 2) + pow(y-nMotorEncoder[Y_AXIS], 2));
-        int xSpeed = speed*(x-(nMotorEncoder[X_AXIS])/dist);
-        int ySpeed = speed*(y-(nMotorEncoder[Y_AXIS])/dist);
+        if(dist > 0.1){
+        	xSpeed = speed*((x-nMotorEncoder[X_AXIS])/dist);
+        	ySpeed = speed*((y-nMotorEncoder[Y_AXIS])/dist);
+        }
         setSpeed(xSpeed, ySpeed);
+        displayString(8, "%d", nMotorEncoder[X_AXIS]);
     }
 }
 

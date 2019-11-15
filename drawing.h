@@ -36,7 +36,7 @@ void drawCirc(int startX, int startY, int radius) {
     moveTo(startX + radius, startY, SHAPE_SPEED);
     actuate(true);
     for(int angle = 0; angle <= 360; angle += 10) {
-        moveTo(startX + radius*cos(angle), startY + radius*sin(angle), SHAPE_SPEED);
+        moveTo(startX + radius*cos(angle*(PI/180)), startY + radius*sin(angle*(PI/180)), SHAPE_SPEED);
     }
     endShape(startX, startY);
 }
@@ -68,7 +68,7 @@ void drawTriangle(int startX, int startY, int sideLength) {
     beginShape(startX, startY);
     actuate(true);
     moveTo(startX + sideLength, startY, SHAPE_SPEED);
-    moveTo(startX + sideLength*sin(PI/3.0), startY + sideLength*cos(PI/3.0), SHAPE_SPEED);
+    moveTo(startX + sideLength*cos(PI/3.0), startY + sideLength*sin(PI/3.0), SHAPE_SPEED);
     moveTo(startX, startY, SHAPE_SPEED);
     endShape(startX, startY);
 }
