@@ -21,9 +21,8 @@ bool actuate (int sign, bool control) //sign should be -1 or +1
     
     }
 
-    if (nMotorEncoder[DRAW_MOTOR]>=DRAW_MOTOR_LIMIT || nMotorEncoder[DRAW_MOTOR]<=0)
-        motor[DRAW_MOTOR]=0;
     
+    motor[DRAW_MOTOR]=0;
     return true;
     
 }
