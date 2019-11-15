@@ -21,11 +21,14 @@ bool actuate (int sign, bool control) //sign should be -1 or +1
     }
     
     priorButtonState=SensorValue[TOUCH_SENSOR];
-    
+    wait1Msec(10);
     }
 
-    
+    if ((nMotorEncoder[DRAW_MOTOR] >= DRAW_MOTOR_LIMIT))
+    motor[DRAW_MOTOR]=10;
+    else 
     motor[DRAW_MOTOR]=0;
+    
     return true;
     
 }
