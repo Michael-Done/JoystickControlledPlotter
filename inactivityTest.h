@@ -3,6 +3,9 @@
 //oldEncoderx = oldEncoderX value (initialized as 0 in task main() )
 //oldEncoderY = oldEncoderY value (initialized as 0 in task main() )
 
+#include "constants.h"
+
+
 bool inactivityTest(int newEncoderX, int newEncoderY, int & oldEncoderX, int & oldEncoderY) //True implies exit
 {
 if (time1[T1]>IDLETIME)
