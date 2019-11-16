@@ -1,5 +1,6 @@
 #include "movement.h"
 #include "constants.h"
+#include "systemReset.h"
 
 // Functions used for drawing
 
@@ -25,7 +26,7 @@ void endShape(int startX, int startY) {
     time1[IDLE_TIMER] = 0;
 }
 
-/*  void drawCircle : draws a circle of specidied radius starting at the center
+/*  void drawCircle : draws a circle of specified radius starting at the center
     Parameters:
         int startX                   : the start x-axis position
         int startY                   : the start y-axis position
@@ -84,4 +85,10 @@ void checkButtons(){
         drawRectangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], RECT_W, RECT_H);
     else if(getButtonPress(buttonRight))
         drawTriangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], TRI_LEN);
+    else if (getButtonPress(buttonBack))
+    {
+       	while (getButtonPress(buttonBack))
+	        {}	
+        systemReset();
+    }
 }
