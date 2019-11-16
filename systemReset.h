@@ -7,7 +7,7 @@ void systemReset()
     motor[X_AXIS] = 0;
     motor[Y_AXIS] = 0;
     motor[DRAW_MOTOR] = 0;
-    
+
     time1[T3] = 0;
     while(time1[T3] < 2500)
         motor[DRAW_MOTOR] = -20;
@@ -15,13 +15,13 @@ void systemReset()
 
     nMotorEncoder[X_AXIS] = 0;
     motor[X_AXIS] = 100;
-    while(SensorValue[COLOR] != (int)colorRed && SensorValue[COLOR] != (int)colorBlack && nMotorEncoder[X_AXIS] < X_LIMIT)
+    while(SensorValue[COLOR_SENSOR] != (int)colorRed && SensorValue[COLOR_SENSOR] != (int)colorBlack && nMotorEncoder[X_AXIS] < X_LIMIT)
     {}
     motor[X_AXIS] = 0;
 
     nMotorEncoder[Y_AXIS] = 0;
     motor[Y_AXIS] = -100;
-    while(SensorValue[COLOR] != (int)colorBlack && nMotorEncoder[Y_AXIS] < Y_LIMIT)
+    while(SensorValue[COLOR_SENSOR] != (int)colorBlack && nMotorEncoder[Y_AXIS] < Y_LIMIT)
     {}
     motor[Y_AXIS] = 0;
 

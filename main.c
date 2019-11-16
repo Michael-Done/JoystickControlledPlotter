@@ -30,7 +30,6 @@ task main(){
 	}
 	systemReset();
 	*/
-	time1[T1] = 0;
-	drawCirc(360*2, 360*2, 360);
-	wait1Msec(1000);
+	while(!getButtonPress(buttonAny))
+		checkButtons();
 }
