@@ -27,7 +27,7 @@ void systemReset()
 
     nMotorEncoder[X_AXIS] = 0;
     motor[X_AXIS] = -100;
-    while(nMotorEncoder[X_AXIS] < X_LIMIT)
+    while(nMotorEncoder[X_AXIS] > -X_LIMIT)
     {}
     motor[X_AXIS] = 0;
 
