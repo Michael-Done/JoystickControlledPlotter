@@ -1,5 +1,6 @@
 #include "movement.h"
 #include "constants.h"
+#include "systemReset.h"
 
 // Functions used for drawing
 
@@ -84,4 +85,10 @@ void checkButtons(){
         drawRectangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], RECT_W, RECT_H);
     else if(getButtonPress(buttonRight))
         drawTriangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], TRI_LEN);
+    else if (getButtonPress(buttonBack))
+    {
+       	while (getButtonPress(buttonBack))
+	        {}	
+        systemReset();
+    }
 }
