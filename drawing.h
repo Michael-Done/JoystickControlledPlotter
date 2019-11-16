@@ -1,6 +1,7 @@
 #include "movement.h"
 #include "constants.h"
 #include "systemReset.h"
+#include "Actuate.h"
 
 // Functions used for drawing
 
@@ -88,7 +89,7 @@ void checkButtons(){
     else if (getButtonPress(buttonBack))
     {
        	while (getButtonPress(buttonBack))
-	        {}	
+	        {}
         systemReset();
     }
 }
