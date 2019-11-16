@@ -10,7 +10,7 @@ void systemReset()
     
     time1[T3] = 0;
     while(time1[T3] < 2500)
-        motor[DRAW_MOTOR] = 20;
+        motor[DRAW_MOTOR] = -20;
     motor[DRAW_MOTOR] = 0;
 
     nMotorEncoder[X_AXIS] = 0;
@@ -25,7 +25,13 @@ void systemReset()
     {}
     motor[Y_AXIS] = 0;
 
-    nMotorEncoder[X_AXIS] = X_LIMIT;
+    nMotorEncoder[X_AXIS] = 0;
+    motor[X_AXIS] = -100;
+    while(nMotorEncoder[X_AXIS] < X_LIMIT)
+    {}
+    motor[X_AXIS] = 0;
+
+    nMotorEncoder[X_AXIS] = 0;
     nMotorEncoder[Y_AXIS] = 0;
 
     resetGyro(X_GYRO);
