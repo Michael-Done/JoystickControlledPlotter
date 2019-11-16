@@ -12,6 +12,7 @@
 #include "movement.h" // Movement funcitons
 //#include "constants.h" // The constants associated with the robot
 #include "systemReset.h"
+#include "Actuate.h"
 
 task main(){
 	/*
@@ -29,9 +30,8 @@ task main(){
 	systemReset();
 	*/
 	time1[T1] = 0;
-	//while(time1[T1] < 1500)
-	//		setSpeed(25, 25);
-	//time1[T1] = 0;
-	drawCirc(360, 360, 360*2);
+	drawCirc(360*2, 360*2, 360);
+	wait1Msec(1000);
+
 
 }

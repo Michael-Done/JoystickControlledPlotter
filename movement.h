@@ -1,4 +1,5 @@
 #include "constants.h"
+#include "Actuate.h"
 /*  void setSpeed : sets the speed of the x and y axes and account for the maximum and minumum encoder values
     Parameters:
         int targetXSpeed             : the target x speed (0 - 100)
@@ -39,12 +40,4 @@ void moveTo(int x, int y, int speed) {
         setSpeed(xSpeed, ySpeed);
         displayString(8, "%d", nMotorEncoder[X_AXIS]);
     }
-}
-
-/*  void actuate: actuates the drawing head to be in the "drawing" or "not drawing" position
-    Parameters:
-        bool dir                     : specifies whether or not the drawing utensil should be raised (false) or lowered (true)
-*/
-void actuate(bool dir){
-    // TO DO
 }
