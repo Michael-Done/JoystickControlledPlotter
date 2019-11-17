@@ -83,11 +83,11 @@ void drawTriangle(int startX, int startY, int sideLength) {
         None
 */
 void checkButtons(){
-    if(getButtonPress(buttonLeft))
+    if(getButtonPress(buttonUp))
         drawCirc(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], CIRCLE_RAD);
     else if(getButtonPress(buttonEnter))
         drawRectangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], RECT_W, RECT_H);
-    else if(getButtonPress(buttonRight))
+    else if(getButtonPress(buttonDown))
         drawTriangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], TRI_LEN);
     else if (getButtonPress(buttonBack))
     {

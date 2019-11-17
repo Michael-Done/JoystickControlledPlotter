@@ -11,26 +11,28 @@
 #include "drawing.h" // Shape drawing functions
 #include "joystickControl.h"
 #include "movement.h" // Movement funcitons
-//#include "constants.h" // The constants associated with the robot
 #include "systemReset.h"
 #include "actuate.h"
 #include "inactivityTest.h"
 
 task main(){
-	//setBlockBackButton(1);
+	setBlockBackButton(1);
 	// Proper task main layout:
 	int oldEncoderY=0;
 	int oldEncoderX=0;
 	time1[IDLE_TIMER]=0;
 	bool exit = false;
 	int sensitivity = 50;
+	bool headState = true;
+	int priorButtonState = 0;
 
 	systemReset();
 	while(!exit && !inactivityTest(oldEncoderX,oldEncoderY) && !manualShutdown()) {
+
 		checkButtons();
 		joystickControl(sensitivity);
 		sensitivity = setSensitivity();
-		//checkActuation();
+		checkActuate(headState, priorButtonState);
 
 
 	}

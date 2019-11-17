@@ -1,10 +1,10 @@
 #include "constants.h"
 #include "joystickControl.h"
 
-/*  bool actuate: Moves the plotter head up and down. 
-    Parameters:
-        int sign                  : determines the direction of actuation. (Down when sign = 1. Up when sign = -1.)
-        int control               : determines if user can move the robot while the plotter is actuating
+/*  bool actuate: Moves the plotter head up and down.
+Parameters:
+int sign                  : determines the direction of actuation. (Down when sign = 1. Up when sign = -1.)
+int control               : determines if user can move the robot while the plotter is actuating
 */
 
 bool actuate (int sign, bool control) { //sign should be -1 or +1
@@ -36,18 +36,18 @@ bool actuate (int sign, bool control) { //sign should be -1 or +1
 	}
 }
 
-/*  bool checkActuate: Checks if the user has pressed and released the touch sensor to initiate actuation. 
-    Parameters:
-        bool headStateUp                  : indicates whether drawing head is actuated up or down
-        int  priorButtonState             : Value used track when the touch sensor has been pushed and released.
+/*  bool checkActuate: Checks if the user has pressed and released the touch sensor to initiate actuation.
+Parameters:
+bool headStateUp                  : indicates whether drawing head is actuated up or down
+int  priorButtonState             : Value used track when the touch sensor has been pushed and released.
 */
 
-void checkActuate (bool & headStateUp, int & priorButtonState) {
+void checkActuate (bool & headState, int & priorButtonState) {
 	if(SensorValue[TOUCH_SENSOR] != 1 && priorButtonState==1) { //check that the touch sensor is not pushed, but was pushed an instance ago
-		if(headStateUp)
-			headStateUp=actuate(1,true);
+		if(headState)
+			headState = actuate(-1,true);
 		else
-			headStateUp = actuate(1,true);
+			headState = actuate(1,true);
 
 	}
 	priorButtonState=SensorValue[TOUCH_SENSOR];
