@@ -1,6 +1,7 @@
 #include "movement.h"
 #include "constants.h"
 #include "systemReset.h"
+#include "Actuate.h"
 
 // Functions used for drawing
 
@@ -26,7 +27,7 @@ void endShape(int startX, int startY) {
     time1[IDLE_TIMER] = 0;
 }
 
-/*  void drawCircle : draws a circle of specidied radius starting at the center
+/*  void drawCircle : draws a circle of specified radius starting at the center
     Parameters:
         int startX                   : the start x-axis position
         int startY                   : the start y-axis position
@@ -88,7 +89,7 @@ void checkButtons(){
     else if (getButtonPress(buttonBack))
     {
        	while (getButtonPress(buttonBack))
-	        {}	
+	        {}
         systemReset();
     }
 }
