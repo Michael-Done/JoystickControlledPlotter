@@ -13,7 +13,7 @@
 #include "movement.h" // Movement funcitons
 //#include "constants.h" // The constants associated with the robot
 #include "systemReset.h"
-#include "Actuate.h"
+#include "actuate.h"
 #include "inactivityTest.h"
 
 task main(){

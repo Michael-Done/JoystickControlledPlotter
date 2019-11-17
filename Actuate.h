@@ -30,6 +30,7 @@ bool actuate (int sign, bool control) { //sign should be -1 or +1
 	}
 }
 
+
 void checkActuate (bool & headStateUp, int & priorButtonState) {
 	if(SensorValue[TOUCH_SENSOR] != 1 && priorButtonState==1) {
 		if(headStateUp)

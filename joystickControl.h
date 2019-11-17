@@ -3,7 +3,7 @@
        None.
 */
 #include "constants.h" //constant values file
-#include "Sensitivity.h" //sensitivity value generator
+#include "sensitivity.h" //sensitivity value generator
 #include "movement.h" //includes setSpeed
 
 

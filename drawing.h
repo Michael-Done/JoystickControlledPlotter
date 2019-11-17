@@ -1,7 +1,7 @@
 #include "movement.h"
 #include "constants.h"
 #include "systemReset.h"
-#include "Actuate.h"
+#include "actuate.h"
 
 // Functions used for drawing
 
