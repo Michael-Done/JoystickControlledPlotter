@@ -17,22 +17,17 @@
 #include "inactivityTest.h"
 
 task main(){
-	setBlockBackButton(1);
-/*
+	//setBlockBackButton(1);
 	// Proper task main layout:
 	bool exit = false;
 	int sensitivity = 50;
 	systemReset();
 	while(!exit) {
-		checkButtons();
-		joystickInput(sensitivity);
-		sensitivity = setSensitivity;
-		checkActuation();
-		checkInactivity(exit);
+		//checkButtons();
+		joystickControl(sensitivity);
+		sensitivity = setSensitivity();
+		//checkActuation();
+		//checkInactivity(exit);
 	}
 	systemReset();
-	*/
-	systemReset();
-	while(
-
 }

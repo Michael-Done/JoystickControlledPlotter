@@ -1,3 +1,6 @@
+
+
+
 /*  void systemReset : performs a reset of the actuator position and the gyros
     Parameters:
         None
@@ -18,8 +21,9 @@ void systemReset()
     motor[X_AXIS] = 50;
     while(SensorValue[COLOR_SENSOR] != (int)colorRed && (SensorValue[COLOR_SENSOR] != (int)colorBlack && SensorValue[COLOR_SENSOR]!=0) && nMotorEncoder[X_AXIS] < X_LIMIT)
     {
-    	//wait1Msec(50);
+    	wait1Msec(50);
     }
+    wait1Msec(50);
     motor[X_AXIS] = 0;
     wait1Msec(500);
 

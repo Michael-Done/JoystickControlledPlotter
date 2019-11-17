@@ -13,10 +13,10 @@ void joystickControl(int sensitivity_Val)
     int ySpeed = 0;
 
     if (abs(getGyroDegrees(X_GYRO))>X_GYRO_LIMIT)
-        xSpeed=getGyroDegrees(X_GYRO)*sensitivity_Val;
+        xSpeed=(getGyroDegrees(X_GYRO) - X_GYRO_LIMIT)*sensitivity_Val/100;
 
     if (abs(getGyroDegrees(Y_GYRO))>Y_GYRO_LIMIT)
-        ySpeed=getGyroDegrees(Y_GYRO)*sensitivity_Val;
+        ySpeed=(getGyroDegrees(Y_GYRO) - Y_GYRO_LIMIT)*sensitivity_Val/100;
 
 
     setSpeed(xSpeed,ySpeed);
