@@ -1,5 +1,9 @@
-#include "constants.h"
+#include "constants.h" //includes SENSFACTOR
 
+/*  float setsensitivity : sets and returnss the sensitivity value based on motor input
+    Parameters:
+        None
+*/
 float setSensitivity()
 {
 	float sensitivity = nMotorEncoder[SENS_MOTOR] * SENSFACTOR;
