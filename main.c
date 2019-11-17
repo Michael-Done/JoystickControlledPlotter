@@ -32,9 +32,7 @@ task main(){
 	}
 	systemReset();
 	*/
-	while(true){
-	if (manualShutdown())
-			systemReset();
-	}
+	systemReset();
+	while(
 
 }

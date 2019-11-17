@@ -1,7 +1,7 @@
-const int DRAW_MOTOR_LIMIT = 130; // The limit above which the drawing head is considered to be "drawing"
+const int DRAW_MOTOR_LIMIT = 120; // The limit above which the drawing head is considered to be "drawing"
 const int X_LIMIT = 1600; // The maximum x-axis encoder limit
 const int Y_LIMIT = 1500; // The maximum y-axis encoder limit
-const int MOVE_TO_TOL = 2; // When the head is within this many ticks of a point, it is considered to be at the point
+const int MOVE_TO_TOL = 4; // When the head is within this many ticks of a point, it is considered to be at the point
 const int SHAPE_SPEED = 25; // The speed at which the pre-programmed shapes will be drawn
 const float SENSFACTOR = -3*(100/360.0); //The % sensitivity the motor encoder changes
 const int ACTUATE_SPEED = 20; //The speed at which the drawing head will actuate
