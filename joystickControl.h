@@ -8,14 +8,16 @@
 */
 void joystickControl(int sensitivity_Val)
 {
-    int xSpeed= 0; //will remain at 0 if the gyros are within the dead zone
+    int xSpeed = 0; //will remain at 0 if the gyros are within the dead zone
     int ySpeed = 0;
+    int xGyro = getGyroDegrees(X_GYRO);
+    int yGyro = getGyroDegrees(Y_GYRO);
 
-    if (abs(getGyroDegrees(X_GYRO))>X_GYRO_LIMIT)
-        xSpeed=(getGyroDegrees(X_GYRO) - X_GYRO_LIMIT)*sensitivity_Val/100;
+    if (abs(xGyro)>INNER_GYRO_LIMIT)
+        xSpeed=(min(abs(xGyro),OUTER_GYRO_LIMIT)*1.0-INNER_GYRO_LIMIT)/(OUTER_GYRO_LIMIT-INNER_GYRO_LIMIT)*(1.0*xGyro/abs(xGyro))*sensitivity_Val;
 
-    if (abs(getGyroDegrees(Y_GYRO))>Y_GYRO_LIMIT)
-        ySpeed=(getGyroDegrees(Y_GYRO) - Y_GYRO_LIMIT)*sensitivity_Val/100;
+    if (abs(yGyro)>INNER_GYRO_LIMIT)
+        ySpeed=(min(abs(yGyro),OUTER_GYRO_LIMIT)*1.0-INNER_GYRO_LIMIT)/(OUTER_GYRO_LIMIT-INNER_GYRO_LIMIT)*(1.0*yGyro/abs(yGyro))*sensitivity_Val;
 
     setSpeed(xSpeed,ySpeed);
     wait1Msec(50);
