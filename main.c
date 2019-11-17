@@ -27,7 +27,7 @@ task main(){
 
 	systemReset();
 	while(!exit && !inactivityTest(oldEncoderX,oldEncoderY) && !manualShutdown()) {
-		//checkButtons();
+		checkButtons();
 		joystickControl(sensitivity);
 		sensitivity = setSensitivity();
 		//checkActuation();
