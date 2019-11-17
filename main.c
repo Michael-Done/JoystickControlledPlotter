@@ -19,15 +19,20 @@
 task main(){
 	//setBlockBackButton(1);
 	// Proper task main layout:
+	int oldEncoderY=0;
+	int oldEncoderX=0;
+	time1[IDLE_TIMER]=0;
 	bool exit = false;
 	int sensitivity = 50;
+
 	systemReset();
-	while(!exit) {
+	while(!exit && !inactivityTest(oldEncoderX,oldEncoderY) && !manualShutdown()) {
 		//checkButtons();
 		joystickControl(sensitivity);
 		sensitivity = setSensitivity();
 		//checkActuation();
-		//checkInactivity(exit);
+
+
 	}
 	systemReset();
 }
