@@ -14,9 +14,11 @@
 //#include "constants.h" // The constants associated with the robot
 #include "systemReset.h"
 #include "Actuate.h"
+#include "inactivityTest.h"
 
 task main(){
-	/*
+	setBlockBackButton(1);
+/*
 	// Proper task main layout:
 	bool exit = false;
 	int sensitivity = 50;
@@ -30,7 +32,9 @@ task main(){
 	}
 	systemReset();
 	*/
-	time1[T1] = 0;
-	drawCirc(360*2, 360*2, 360);
-	wait1Msec(1000);
+	while(true){
+	if (manualShutdown())
+			systemReset();
+	}
+
 }

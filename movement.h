@@ -1,5 +1,5 @@
 #include "constants.h"
-#include "Actuate.h"
+
 /*  void setSpeed : sets the speed of the x and y axes and account for the maximum and minumum encoder values
     Parameters:
         int targetXSpeed             : the target x speed (0 - 100)
