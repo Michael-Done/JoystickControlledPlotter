@@ -1,7 +1,7 @@
 #include "movement.h"
 #include "constants.h"
 #include "systemReset.h"
-#include "Actuate.h"
+#include "actuate.h"
 
 // Functions used for drawing
 
@@ -13,7 +13,7 @@
 void beginShape(int startX, int startY){
     while(getButtonPress(buttonAny)) {}
     actuate(UP, false);
-    moveTo(startX, startY, SHAPE_SPEED);
+    moveTo(startX, startY, SHAPE_SPEED, true);
 }
 
 /*  void endShape : performs actions common to the ending of all shapes
@@ -23,7 +23,7 @@ void beginShape(int startX, int startY){
 */
 void endShape(int startX, int startY) {
     actuate(UP, false);
-    moveTo(startX,startY, SHAPE_SPEED);
+    moveTo(startX,startY, SHAPE_SPEED, true);
     time1[IDLE_TIMER] = 0;
 }
 
@@ -35,10 +35,10 @@ void endShape(int startX, int startY) {
 */
 void drawCirc(int startX, int startY, int radius) {
     beginShape(startX, startY);
-    moveTo(startX + radius, startY, SHAPE_SPEED);
+    moveTo(startX + radius, startY, SHAPE_SPEED, true);
     actuate(DOWN, false);
     for(int angle = 0; angle <= 360; angle += 10) {
-        moveTo(startX + radius*cos(angle*(PI/180)), startY + radius*sin(angle*(PI/180)), SHAPE_SPEED);
+        moveTo(startX + radius*cos(angle*(PI/180)), startY + radius*sin(angle*(PI/180)), SHAPE_SPEED, angle == 360);
     }
     endShape(startX, startY);
 }
@@ -53,10 +53,10 @@ void drawCirc(int startX, int startY, int radius) {
 void drawRectangle(int startX, int startY, int width, int height) {
     beginShape(startX, startY);
     actuate(DOWN, false);
-    moveTo(startX + width, startY, SHAPE_SPEED);
-    moveTo(startX + width, startY + height, SHAPE_SPEED);
-    moveTo(startX, startY + height, SHAPE_SPEED);
-    moveTo(startX, startY, SHAPE_SPEED);
+    moveTo(startX + width, startY, SHAPE_SPEED, true);
+    moveTo(startX + width, startY + height, SHAPE_SPEED, true);
+    moveTo(startX, startY + height, SHAPE_SPEED, true);
+    moveTo(startX, startY, SHAPE_SPEED, true);
     endShape(startX, startY);
 }
 
@@ -69,9 +69,12 @@ void drawRectangle(int startX, int startY, int width, int height) {
 void drawTriangle(int startX, int startY, int sideLength) {
     beginShape(startX, startY);
     actuate(DOWN, false);
-    moveTo(startX + sideLength, startY, SHAPE_SPEED);
-    moveTo(startX + sideLength*cos(PI/3.0), startY + sideLength*sin(PI/3.0), SHAPE_SPEED);
-    moveTo(startX, startY, SHAPE_SPEED);
+    moveTo(startX + sideLength, startY, SHAPE_SPEED, true);
+    wait1Msec(100);
+    moveTo(startX + sideLength*cos(PI/3.0), startY + sideLength*sin(PI/3.0), SHAPE_SPEED, true);
+    wait1Msec(100);
+    moveTo(startX, startY, SHAPE_SPEED, true);
+    wait1Msec(100);
     endShape(startX, startY);
 }
 
@@ -80,11 +83,11 @@ void drawTriangle(int startX, int startY, int sideLength) {
         None
 */
 void checkButtons(){
-    if(getButtonPress(buttonLeft))
+    if(getButtonPress(buttonUp))
         drawCirc(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], CIRCLE_RAD);
     else if(getButtonPress(buttonEnter))
         drawRectangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], RECT_W, RECT_H);
-    else if(getButtonPress(buttonRight))
+    else if(getButtonPress(buttonDown))
         drawTriangle(nMotorEncoder[X_AXIS], nMotorEncoder[Y_AXIS], TRI_LEN);
     else if (getButtonPress(buttonBack))
     {

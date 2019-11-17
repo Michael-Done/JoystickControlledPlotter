@@ -26,7 +26,7 @@ void setSpeed(int targetXSpeed, int targetYSpeed){
         int y                        : the target y value (in encoder ticks)
         int speed                    : the speed the drawing head will move at (0 - 100)
 */
-void moveTo(int x, int y, int speed) {
+void moveTo(int x, int y, int speed, bool stopAtEnd) {
     x = max(min(x, X_LIMIT), 0);
     y = max(min(y, Y_LIMIT), 0);
     while(abs(nMotorEncoder[X_AXIS]-x) > MOVE_TO_TOL || abs(nMotorEncoder[Y_AXIS]-y) > MOVE_TO_TOL){
@@ -40,4 +40,6 @@ void moveTo(int x, int y, int speed) {
         setSpeed(xSpeed, ySpeed);
         displayString(8, "%d", nMotorEncoder[X_AXIS]);
     }
+    if(stopAtEnd)
+    	setSpeed(0, 0);
 }
