@@ -1,26 +1,33 @@
-//newEncoderX = x-axis motor encoder value
-//newEncoderY = y-axis motor encoder value
-//oldEncoderx = oldEncoderX value (initialized as 0 in task main() )
-//oldEncoderY = oldEncoderY value (initialized as 0 in task main() )
+
 
 #include "constants.h"
 
+/*  bool inactivityTest: Checks if the robot has not moved for the designated idle time. If true, system shuts off
+    Parameters:
+        int oldEncoderX                   : value of the x position last moved to. Used for to check for movement. 
+        int oldEncoderY                   : value of the y position last moved to. Used for to check for movement. 
+*/
 
-bool inactivityTest(int newEncoderX, int newEncoderY, int & oldEncoderX, int & oldEncoderY) //True implies exit
+bool inactivityTest(int & oldEncoderX, int & oldEncoderY) //True implies exit entire program
 {
 if (time1[IDLE_TIMER]>IDLETIME)
     return true;
 
-if(newEncoderX != oldEncoderX && newEncoderY !=oldEncoderY)  //an axis has moved
+if(nMotorEncoder[X_AXIS] != oldEncoderX || nMotorEncoder[Y_AXIS] !=oldEncoderY)  //an axis has moved
 {
-    time1[T1]=0;
-    oldEncoderX=newEncoderX;        //Reset Timer, Update Current Encoder Value
+    time1[IDLE_TIMER]=0;
+    oldEncoderX=newEncoderX;        //Reset Timer, Update Current Encoder Tracker Value
     oldEncoderY=newEncoderY;
 }
 
 return false;
 
 }
+
+/*  bool manualShutdown: Checks if the robot has been moved over the black box for duration of manual idle time. If true, system shuts off 
+    Parameters:
+        None.
+*/
 
 bool manualShutdown()
 {
