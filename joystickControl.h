@@ -12,10 +12,12 @@ void joystickControl(int sensitivity_Val)
     int ySpeed = 0;
     int xGyro = getGyroDegrees(X_GYRO);
     int yGyro = getGyroDegrees(Y_GYRO);
-
     if(sqrt(pow(xGyro,2) + pow(yGyro, 2)) > INNER_GYRO_LIMIT)
-        xSpeed=(min(abs(xGyro),OUTER_GYRO_LIMIT)*1.0-(INNER_GYRO_LIMIT*cos(arctan(xGyro,yGyro)))/(OUTER_GYRO_LIMIT-INNER_GYRO_LIMIT)*(1.0*xGyro/abs(xGyro))*sensitivity_Val;
-        ySpeed=(min(abs(yGyro),OUTER_GYRO_LIMIT)*1.0-(INNER_GYRO_LIMIT*sin(arctan(xGyro,yGyro)))/(OUTER_GYRO_LIMIT-INNER_GYRO_LIMIT)*(1.0*yGyro/abs(yGyro))*sensitivity_Val;
+    {
+        float magnitude = (((min(OUTER_GYRO_LIMIT, sqrt(pow(xGyro,2) + pow(yGyro, 2)))) / OUTER_GYRO_LIMIT) - INNER_GYRO_LIMIT/OUTER_GYRO_LIMIT*100) * OUTER_GYRO_LIMIT/INNER_GYRO_LIMIT * sensitivity_Val/100;
+        xSpeed=magnitude*cos(arctan(xGyro,yGyro));
+        ySpeed=magnitude*sin(arctan(xGyro,yGyro));
+    }
 
     setSpeed(xSpeed,ySpeed);
     wait1Msec(50);
