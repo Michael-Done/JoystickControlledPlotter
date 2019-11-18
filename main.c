@@ -23,7 +23,7 @@ task main(){
 	time1[IDLE_TIMER]=0;
 	bool exit = false;
 	int sensitivity = 50;
-	bool headState = true;
+	bool headState = false;
 	int priorButtonState = 0;
 
 	systemReset();
