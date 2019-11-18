@@ -37,3 +37,20 @@ int min(int a, int b){
 		return a;
 	return b;
 }
+
+float arctan(int x, int y){
+	float angle;
+
+	if (x > 0)
+		angle = atan(y/x);
+	else if (x < 0)
+		angle = PI + atan(y/x);
+	else if (x == 0 && y > 0)
+		angle = PI/2;
+	else if (x == 0 && y < 0)
+		angle = 3*PI/2;
+	else
+		angle = 0;
+	
+	return angle;
+}
