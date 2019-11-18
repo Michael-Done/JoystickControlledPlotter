@@ -50,8 +50,8 @@ void checkRecalibrate(int & oldGyroX, int & oldGyroY) //in deadzone and not chan
     				 resetGyro(Y_GYRO);
 				}
 
-
+	
 	oldGyroX = getGyroDegrees(X_GYRO);  //if gyros have moved, update old values
 	oldGyroY = getGyroDegrees(Y_GYRO);
-
+	
 }
