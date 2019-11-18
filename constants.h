@@ -38,18 +38,20 @@ int min(int a, int b){
 	return b;
 }
 
+/*  float arctan : returns the arctangent of given x and y values (0 -> 2*PI)
+*/
 float arctan(int x, int y){
 	float angle;
 
-	if (x > 0)
+	if (x > 0) //4th to 1st quadrant
 		angle = atan(y/x);
-	else if (x < 0)
+	else if (x < 0) //2nd to 3rd quadrant
 		angle = PI + atan(y/x);
-	else if (x == 0 && y > 0)
+	else if (x == 0 && y > 0) //vertical up
 		angle = PI/2;
-	else if (x == 0 && y < 0)
+	else if (x == 0 && y < 0) //vertical down
 		angle = 3*PI/2;
-	else
+	else //x,y = 0
 		angle = 0;
 	
 	return angle;
