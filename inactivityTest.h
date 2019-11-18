@@ -1,5 +1,3 @@
-
-
 #include "constants.h"
 
 /*  bool inactivityTest: Checks if the robot has not moved for the designated idle time. If true, system shuts off
