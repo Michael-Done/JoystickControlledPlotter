@@ -14,7 +14,7 @@ void joystickControl(int sensitivity_Val)
     int yGyro = getGyroDegrees(Y_GYRO);
     if(sqrt(pow(xGyro,2) + pow(yGyro, 2)) > INNER_GYRO_LIMIT)
     {
-        float magnitude = (((min(OUTER_GYRO_LIMIT, sqrt(pow(xGyro,2) + pow(yGyro, 2)))) / OUTER_GYRO_LIMIT) - INNER_GYRO_LIMIT/OUTER_GYRO_LIMIT*100) * OUTER_GYRO_LIMIT/INNER_GYRO_LIMIT * sensitivity_Val/100;
+        float magnitude = (((min(OUTER_GYRO_LIMIT, sqrt(pow(xGyro,2) + pow(yGyro, 2)))) / OUTER_GYRO_LIMIT) - INNER_GYRO_LIMIT/OUTER_GYRO_LIMIT) * OUTER_GYRO_LIMIT/INNER_GYRO_LIMIT * sensitivity_Val;
         xSpeed=magnitude*cos(arctan(xGyro,yGyro));
         ySpeed=magnitude*sin(arctan(xGyro,yGyro));
     }
