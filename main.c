@@ -38,7 +38,6 @@ task main(){
 		checkActuate(headState, priorButtonState);
 		checkRecalibrate(oldGyroX,oldGyroY);
 
-
 	}
 	systemReset();
 }

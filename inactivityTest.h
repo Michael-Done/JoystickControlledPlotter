@@ -43,15 +43,15 @@ bool manualShutdown()
 void checkRecalibrate(int & oldGyroX, int & oldGyroY) //in deadzone and not changed
 {
 	if( (getGyroDegrees(X_GYRO) == oldGyroX) && (getGyroDegrees(Y_GYRO)==oldGyroY))
-)		if(abs(oldGyroX)<INNER_GYRO_LIMIT && abs(oldGyroY)<INNER_GYRO_LIMIT)
+		if(abs(oldGyroX)<INNER_GYRO_LIMIT && abs(oldGyroY)<INNER_GYRO_LIMIT)
 			if (time1[IDLE_TIMER]>GYRO_RESET_TIME)
 				{
 					 resetGyro(X_GYRO);
     				 resetGyro(Y_GYRO);
 				}
 
-	
+
 	oldGyroX = getGyroDegrees(X_GYRO);  //if gyros have moved, update old values
 	oldGyroY = getGyroDegrees(Y_GYRO);
-	
+
 }
