@@ -25,6 +25,9 @@ task main(){
 	int sensitivity = 50;
 	bool headState = false;
 	int priorButtonState = 0;
+	int oldGyroX = 0;
+	int oldGyroY = 0;
+
 
 	systemReset();
 	while(!exit && !inactivityTest(oldEncoderX,oldEncoderY) && !manualShutdown()) {
@@ -33,6 +36,7 @@ task main(){
 		joystickControl(sensitivity);
 		sensitivity = setSensitivity();
 		checkActuate(headState, priorButtonState);
+		checkRecalibrate(oldGyroX,oldGyroY);
 
 
 	}
