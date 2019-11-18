@@ -9,7 +9,7 @@ const int IDLETIME = 5*60*1000; //triggers reset once the timer reaches this val
 const int MANUAL_IDLETIME = 5000;
 const int INNER_GYRO_LIMIT = 15; //dead zone limit for x gyro
 const int OUTER_GYRO_LIMIT = 30; //dead zone limit for y gyro
-const int GYRO_RESET_TIME = 3*1000 //time until gyros try to reset themselves
+const int GYRO_RESET_TIME = 3*1000; //time until gyros try to reset themselves
 
 const TTimers MANUAL_TIMER = T2; //The timer associated with checking manual shutdown time
 const TTimers IDLE_TIMER = T1; // The timer associated with checking the idle time

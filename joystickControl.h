@@ -1,6 +1,4 @@
-#include "constants.h" //constant values file
 #include "sensitivity.h" //sensitivity value generator
-#include "movement.h" //includes setSpeed
 
 /*  void joystickControl : moves plotter according to joystick gyro tilts
     Parameters:
