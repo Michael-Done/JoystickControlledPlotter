@@ -38,7 +38,6 @@ void moveTo(int x, int y, int speed, bool stopAtEnd) {
         	ySpeed = speed*((y-nMotorEncoder[Y_AXIS])/dist);
         }
         setSpeed(xSpeed, ySpeed);
-        displayString(8, "%d", nMotorEncoder[X_AXIS]);
     }
     if(stopAtEnd)
     	setSpeed(0, 0);

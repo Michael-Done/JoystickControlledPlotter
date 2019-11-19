@@ -1,5 +1,3 @@
-#include "constants.h" //includes SENSFACTOR
-
 /*  float setsensitivity : sets and returnss the sensitivity value based on motor input
     Parameters:
         None

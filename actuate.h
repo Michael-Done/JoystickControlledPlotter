@@ -1,4 +1,3 @@
-#include "constants.h"
 #include "joystickControl.h"
 
 /*  bool actuate: Moves the plotter head up and down.

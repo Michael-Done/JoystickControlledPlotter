@@ -1,6 +1,3 @@
-
-
-
 /*  void systemReset : performs a reset of the actuator position and the gyros
     Parameters:
         None
