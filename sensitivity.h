@@ -4,11 +4,11 @@
 */
 float setSensitivity()
 {
-	float sensitivity = 50 + nMotorEncoder[SENS_MOTOR] * SENSFACTOR;
+	float sensitivity = (MAX_SENS-MIN_SENS)/2.0 + nMotorEncoder[SENS_MOTOR] * SENSFACTOR;
 
-	if(sensitivity > 100)
-		return 100;
-	else if(sensitivity < 0)
+	if(sensitivity > MAX_SENS)
+		return MAX_SENS;
+	else if(sensitivity < MIN_SENS)
 		return 0;
 
 	return sensitivity;

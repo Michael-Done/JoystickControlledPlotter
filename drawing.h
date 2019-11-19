@@ -36,7 +36,7 @@ void drawCirc(int startX, int startY, int radius) {
     beginShape(startX, startY);
     moveTo(startX + radius, startY, SHAPE_SPEED, true);
     actuate(DOWN, false);
-    for(int angle = 0; angle <= 360; angle += 10) {
+    for(int angle = 0; angle <= 360; angle += 1) {
         moveTo(startX + radius*cos(angle*(PI/180)), startY + radius*sin(angle*(PI/180)), SHAPE_SPEED, angle == 360);
     }
     endShape(startX, startY);
