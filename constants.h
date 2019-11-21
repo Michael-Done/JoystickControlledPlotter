@@ -7,13 +7,15 @@ const float SENSFACTOR = -3*(100/360.0); //The % sensitivity the motor encoder c
 const int ACTUATE_SPEED = 60; //The speed at which the drawing head will actuate
 const int IDLETIME = 5*60*1000; //triggers reset once the timer reaches this value
 const int MANUAL_IDLETIME = 5000;
-const int INNER_GYRO_LIMIT = 5; //dead zone limit for x gyro
+const int INNER_GYRO_LIMIT = 13; //dead zone limit for x gyro
 const int OUTER_GYRO_LIMIT = 30; //dead zone limit for y gyro
 const int GYRO_RESET_TIME = 3*1000; //time until gyros try to reset themselves
+const int MAX_SENS = 75;
+const int MIN_SENS = 0;
 
 const TTimers MANUAL_TIMER = T2; //The timer associated with checking manual shutdown time
 const TTimers IDLE_TIMER = T1; // The timer associated with checking the idle time
-const int CIRCLE_RAD = 180; // The radius of the preprogrammed circle
+const int CIRCLE_RAD = 360; // The radius of the preprogrammed circle
 const int RECT_W = 360*2; // The width of the preprogrammed rectangle
 const int RECT_H = 360*2; // The height of the preprogrammed rectangle
 const int TRI_LEN = 360*1.5; // The side length of the preprogrammed triangl
