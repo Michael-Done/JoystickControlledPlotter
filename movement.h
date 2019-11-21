@@ -34,8 +34,8 @@ void moveTo(int x, int y, int speed, bool stopAtEnd) {
         int ySpeed = 0;
         float dist = sqrt(pow(x-nMotorEncoder[X_AXIS], 2) + pow(y-nMotorEncoder[Y_AXIS], 2));
         if(dist > 0.1){
-        	xSpeed = speed*((x-nMotorEncoder[X_AXIS])/dist);
-        	ySpeed = speed*((y-nMotorEncoder[Y_AXIS])/dist);
+        	xSpeed = speed*((x-nMotorEncoder[X_AXIS]*1.0)/dist);
+        	ySpeed = speed*((y-nMotorEncoder[Y_AXIS]*1.0)/dist);
         }
         setSpeed(xSpeed, ySpeed);
     }

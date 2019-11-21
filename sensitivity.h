@@ -6,8 +6,8 @@ float setSensitivity()
 {
 	float sensitivity = 50 + nMotorEncoder[SENS_MOTOR] * SENSFACTOR;
 	eraseDisplay();
-	for(int count = 0; count < sensitivity/100.0*355; count+=10){
-		displayStringAt(65, count, "|");
+	for(int count = 0; count < sensitivity/100.0*175; count+=5){
+		displayStringAt(count, 65, "|");
 	}
 	if(sensitivity > 100)
 		return 100;
