@@ -12,8 +12,8 @@
 #include "inactivityTest.h"
 
 task main(){
+	setMotorBrakeMode(SENS_MOTOR, motorCoast);
 	setBlockBackButton(1);
-	// Proper task main layout:
 	int oldEncoderY=0;
 	int oldEncoderX=0;
 	time1[IDLE_TIMER]=0;
@@ -23,7 +23,6 @@ task main(){
 	int priorButtonState = 0;
 	int oldGyroX = 0;
 	int oldGyroY = 0;
-
 
 	systemReset();
 	while(!exit && !inactivityTest(oldEncoderX,oldEncoderY) && !manualShutdown()) {
