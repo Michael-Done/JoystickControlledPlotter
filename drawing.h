@@ -36,6 +36,7 @@ void drawCirc(int startX, int startY, int radius) {
     beginShape(startX, startY);
     moveTo(startX + radius, startY, SHAPE_SPEED, true);
     actuate(DOWN, false);
+    wait1Msec(1500);
     for(int angle = 0; angle <= 360; angle += 10) {
         moveTo(startX + radius*cos(angle*(PI/180)), startY + radius*sin(angle*(PI/180)), SHAPE_SPEED, angle == 360);
     }
@@ -52,6 +53,7 @@ void drawCirc(int startX, int startY, int radius) {
 void drawRectangle(int startX, int startY, int width, int height) {
     beginShape(startX, startY);
     actuate(DOWN, false);
+    wait1Msec(1500);
     moveTo(startX + width, startY, SHAPE_SPEED, true);
     moveTo(startX + width, startY + height, SHAPE_SPEED, true);
     moveTo(startX, startY + height, SHAPE_SPEED, true);
@@ -68,6 +70,7 @@ void drawRectangle(int startX, int startY, int width, int height) {
 void drawTriangle(int startX, int startY, int sideLength) {
     beginShape(startX, startY);
     actuate(DOWN, false);
+    wait1Msec(1500);
     moveTo(startX + sideLength, startY, SHAPE_SPEED, true);
     wait1Msec(100);
     moveTo(startX + sideLength*cos(PI/3.0), startY + sideLength*sin(PI/3.0), SHAPE_SPEED, true);
@@ -91,7 +94,7 @@ void checkButtons(){
     else if (getButtonPress(buttonBack))
     {
        	while (getButtonPress(buttonBack))
-	        {}
+	      {}
         systemReset();
     }
 }
