@@ -9,7 +9,7 @@ const float SENSFACTOR = -5*(MAX_SENS/360.0); //The % sensitivity the motor enco
 const int ACTUATE_SPEED = 60; //The speed at which the drawing head will actuate
 const int IDLETIME = 5*60*1000; //triggers reset once the timer reaches this value
 const int MANUAL_IDLETIME = 5000;
-const int INNER_GYRO_LIMIT = 13; //dead zone limit for x gyro
+const int INNER_GYRO_LIMIT = 10; //dead zone limit for x gyro
 const int OUTER_GYRO_LIMIT = 30; //dead zone limit for y gyro
 const int GYRO_RESET_TIME = 3*1000; //time until gyros try to reset themselves
 
