@@ -17,7 +17,6 @@ task main(){
 	int oldEncoderY=0;
 	int oldEncoderX=0;
 	time1[IDLE_TIMER]=0;
-	bool exit = false;
 	int sensitivity = 50;
 	bool headState = false;
 	int priorButtonState = 0;
@@ -25,7 +24,7 @@ task main(){
 	int oldGyroY = 0;
 
 	systemReset();
-	while(!exit && !inactivityTest(oldEncoderX,oldEncoderY) && !manualShutdown()) {
+	while(!inactivityTest(oldEncoderX,oldEncoderY) && !manualShutdown()) {
 
 		checkButtons();
 		joystickControl(sensitivity);
