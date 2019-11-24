@@ -25,6 +25,7 @@ void setSpeed(int targetXSpeed, int targetYSpeed){
         int x                        : the target x value (in encoder ticks)
         int y                        : the target y value (in encoder ticks)
         int speed                    : the speed the drawing head will move at (0 - 100)
+        bool stopAtEnd               : true will make the drawin head stop once the target is reached
 */
 void moveTo(int x, int y, int speed, bool stopAtEnd) {
     x = max(min(x, X_LIMIT), 0);

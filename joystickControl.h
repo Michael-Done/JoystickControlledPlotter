@@ -19,5 +19,5 @@ void joystickControl(int sensitivity_Val)
     }
 
     setSpeed(xSpeed,ySpeed);
-    //wait1Msec(50);
+    wait1Msec(50);
 }
